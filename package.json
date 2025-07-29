@@ -1,0 +1,13 @@
+{
+  "name": "myprotector-shield-website",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "build": "npm run build:landing && npm run build:app",
+    "build:landing": "cd myprotector-landing && pnpm install && pnpm run build",
+    "build:app": "cd myprotector-shield && pnpm install && pnpm run build"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.0"
+  }
+}
