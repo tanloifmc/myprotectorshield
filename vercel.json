@@ -2,12 +2,24 @@
   "version": 2,
   "rewrites": [
     {
+      "source": "/app",
+      "destination": "/myprotector-shield/app-dist/index.html"
+    },
+    {
       "source": "/app/:path*",
       "destination": "/myprotector-shield/app-dist/:path*"
     },
     {
+      "source": "/docs",
+      "destination": "/docs/index.html"
+    },
+    {
       "source": "/docs/:path*",
       "destination": "/docs/:path*"
+    },
+    {
+      "source": "/:path((?!.*\\.).*)",
+      "destination": "/myprotector-landing/landing-dist/index.html"
     },
     {
       "source": "/:path*",
