@@ -1,20 +1,17 @@
 {
   "version": 2,
-  "builds": [
+  "rewrites": [
     {
-      "src": "myprotector-landing/package.json",
-      "use": "@vercel/static-build",
-      "config": { "distDir": "dist" }
+      "source": "/app/:path*",
+      "destination": "/myprotector-shield/app-dist/:path*"
     },
     {
-      "src": "myprotector-shield/package.json",
-      "use": "@vercel/static-build",
-      "config": { "distDir": "dist" }
+      "source": "/docs/:path*",
+      "destination": "/docs/:path*"
+    },
+    {
+      "source": "/:path*",
+      "destination": "/myprotector-landing/landing-dist/:path*"
     }
-  ],
-  "rewrites": [
-    { "source": "/app/(.*)", "destination": "/myprotector-shield/dist/$1" },
-    { "source": "/docs/(.*)", "destination": "/docs/$1" },
-    { "source": "/(.*)", "destination": "/myprotector-landing/dist/$1" }
   ]
 }
