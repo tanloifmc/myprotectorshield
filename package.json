@@ -1,12 +1,15 @@
 {
   "name": "myprotector-shield-website",
   "version": "1.0.0",
-  "private": true,
-  
+  "scripts": {
+    "build": "npm run build:landing && npm run build:app",
+    "build:landing": "cd myprotector-landing && pnpm run build && cp -r dist/* ../dist/",
+    "build:app": "cd myprotector-shield && pnpm run build && mkdir -p ../dist/app && cp -r dist/* ../dist/app/",
+    "dev": "concurrently \"npm run dev:landing\" \"npm run dev:app\"",
+    "dev:landing": "cd myprotector-landing && pnpm run dev",
+    "dev:app": "cd myprotector-shield && pnpm run dev"
+  },
   "devDependencies": {
     "concurrently": "^8.2.0"
-  },
-  "overrides": {
-    "date-fns": "3.6.0"
   }
 }
